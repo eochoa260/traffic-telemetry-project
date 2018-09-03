@@ -1,0 +1,28 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: chi-traffic-ing
+spec:
+  schedule: "*/15 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          volumes:
+          - name: google-cloud-key
+            secret:
+              secretName: chi-traffic-ing-pubsub-key
+          containers:
+          - name: chi-traffic-ing
+            image: gcr.io/tutorial-182618/chi-traffic-ing:201808292230
+            args:
+            - /bin/sh
+            - -c
+            - python /usr/src/app/get_chi_traffic.py
+            volumeMounts:
+            - name: google-cloud-key
+              mountPath: /var/secrets/google
+            env:
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: /var/secrets/google/key.json
+          restartPolicy: OnFailure

@@ -1,0 +1,16 @@
+[
+{"name": "SEGMENTID", "type": "integer", "mode": "required" },
+{"name": "STREET", "type": "string", "mode" : "required"},
+{"name": "DIRECTION", "type": "string", "mode" : "required"},
+{"name": "FROM_STREET", "type": "string", "mode" : "required"},
+{"name": "TO_STREET", "type": "string", "mode" : "required"},
+{"name": "LENGTH", "type": "float", "mode" : "required"},
+{"name": "STREET_HEADING", "type": "string", "mode" : "required"},
+{"name": "COMMENTS", "type": "string", "mode" : "nullable"},
+{"name": "START_LONGITUDE", "type": "float", "mode" : "required"},
+{"name": "START_LATITUDE", "type": "float", "mode" : "required"},
+{"name": "END_LONGITUDE", "type": "float", "mode" : "required"},
+{"name": "END_LATITUDE", "type": "float", "mode" : "required"},
+{"name": "CURRENT_SPEED", "type": "float", "mode" : "required"},
+{"name": "LAST_UPDATED", "type": "timestamp", "mode": "required" }
+]
